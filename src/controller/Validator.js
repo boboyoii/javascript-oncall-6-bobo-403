@@ -1,4 +1,4 @@
-import DAY from '../constant/DayConstant.js';
+import { DAY } from '../constant/DayConstant.js';
 import { ERROR_MESSAGE } from '../constant/Message.js';
 
 class Validator {
