@@ -10,7 +10,7 @@ class Schedule {
   }
 
   showSchedule() {
-    return this.#schedule.join('\n');
+    return this.#schedule;
   }
 
   isOverlapBeforeWorker(worker) {
