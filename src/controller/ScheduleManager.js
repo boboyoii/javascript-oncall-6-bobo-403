@@ -17,6 +17,11 @@ class ScheduleManager {
     this.#schedule = new Schedule();
   }
 
+  isWeekend(dayIndex) {
+    if (!(dayIndex >= 0 && dayIndex <= 4)) return true;
+    return false;
+  }
+
   isHoliday(month, today) {
     if (HOLIDAY_DATE[month] !== undefined)
       if (HOLIDAY_DATE[month].includes(today)) return true;
