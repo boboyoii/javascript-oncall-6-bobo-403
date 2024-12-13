@@ -13,6 +13,12 @@ class Validator {
       throw new Error(ERROR_MESSAGE.invalid_day_of_week);
     }
   }
+
+  validateWorkerNumber(workers) {
+    if (!(workers.length >= 5 && workers.length <= 35)) {
+      throw new Error(ERROR_MESSAGE.invalid_worker_number);
+    }
+  }
 }
 
 export default Validator;
