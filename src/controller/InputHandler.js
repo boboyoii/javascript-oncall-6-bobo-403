@@ -17,6 +17,15 @@ class InputHandler {
 
     return { month, day };
   }
+
+  getValidateWokers(workersString) {
+    const workers = workersString.split(',');
+    this.#validator.validateWorkerNumber(workers);
+    this.#validator.validateNameUnique(workers);
+    workers.forEach((worker) => this.#validator.validateWorkerName(worker));
+
+    return workers;
+  }
 }
 
 export default InputHandler;
