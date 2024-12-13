@@ -39,11 +39,7 @@ class ScheduleManager {
         this.#holidayIndex =
           (this.#holidayIndex + 1) % this.#holidayWorkers.length;
       } else {
-        this.#schedule.addSchedule(
-          `${month}월 ${today}일 ${DAY[dayIndex]} ${
-            this.#weekdaysWorkers[this.#weekIndex]
-          }`
-        );
+        this.addWeekWorker(today, dayIndex);
         this.#weekIndex = (this.#weekIndex + 1) % this.#weekdaysWorkers.length;
       }
       dayIndex = (dayIndex + 1) % DAY.length;
@@ -63,6 +59,14 @@ class ScheduleManager {
     this.#schedule.addSchedule(
       `${this.#month}월 ${today}일 ${DAY[dayIndex]}(휴일) ${
         this.#holidayWorkers[this.#holidayIndex]
+      }`
+    );
+  }
+
+  addWeekWorker(today, dayIndex) {
+    this.#schedule.addSchedule(
+      `${month}월 ${today}일 ${DAY[dayIndex]} ${
+        this.#weekdaysWorkers[this.#weekIndex]
       }`
     );
   }
