@@ -23,24 +23,11 @@ class ScheduleManager {
     let dayIndex = DAY.indexOf(day);
     for (let today = 1; today <= date; today++) {
       if (this.isHoliday(month, today)) {
-        if (this.isduplicationWork(this.#weekdaysWorkers[this.#holidayIndex])) {
-          this.addHolidayWorker(today, dayIndex);
-          dayIndex = (dayIndex + 1) % DAY.length;
-          this.addHolidayWorker(today + 1, dayIndex);
-          this.#holidayIndex =
-            (this.#holidayIndex + 2) % this.#holidayWorkers.length;
-        } else {
-          this.addHolidayWorker(today, dayIndex);
-          this.#holidayIndex =
-            (this.#holidayIndex + 1) % this.#holidayWorkers.length;
-        }
+        this.addHolidayWorker(today, dayIndex);
       } else if (this.isWeekend(dayIndex)) {
         this.addWeekendWorker(today, dayIndex);
-        this.#holidayIndex =
-          (this.#holidayIndex + 1) % this.#holidayWorkers.length;
       } else {
         this.addWeekWorker(today, dayIndex);
-        this.#weekIndex = (this.#weekIndex + 1) % this.#weekdaysWorkers.length;
       }
       dayIndex = (dayIndex + 1) % DAY.length;
     }
@@ -53,6 +40,7 @@ class ScheduleManager {
         this.#holidayWorkers[this.#holidayIndex]
       }`
     );
+    this.#holidayIndex = (this.#holidayIndex + 1) % this.#holidayWorkers.length;
   }
 
   addWeekendWorker(today, dayIndex) {
@@ -61,14 +49,16 @@ class ScheduleManager {
         this.#holidayWorkers[this.#holidayIndex]
       }`
     );
+    this.#holidayIndex = (this.#holidayIndex + 1) % this.#holidayWorkers.length;
   }
 
   addWeekWorker(today, dayIndex) {
     this.#schedule.addSchedule(
-      `${month}월 ${today}일 ${DAY[dayIndex]} ${
+      `${this.#month}월 ${today}일 ${DAY[dayIndex]} ${
         this.#weekdaysWorkers[this.#weekIndex]
       }`
     );
+    this.#weekIndex = (this.#weekIndex + 1) % this.#weekdaysWorkers.length;
   }
 
   isduplicationWork(worker) {
