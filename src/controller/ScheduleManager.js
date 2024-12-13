@@ -35,11 +35,7 @@ class ScheduleManager {
             (this.#holidayIndex + 1) % this.#holidayWorkers.length;
         }
       } else if (this.isWeekend(dayIndex)) {
-        this.#schedule.addSchedule(
-          `${month}월 ${today}일 ${DAY[dayIndex]} ${
-            this.#holidayWorkers[this.#holidayIndex]
-          }`
-        );
+        this.addWeekendWorker(today, dayIndex);
         this.#holidayIndex =
           (this.#holidayIndex + 1) % this.#holidayWorkers.length;
       } else {
@@ -56,6 +52,14 @@ class ScheduleManager {
   }
 
   addHolidayWorker(today, dayIndex) {
+    this.#schedule.addSchedule(
+      `${this.#month}월 ${today}일 ${DAY[dayIndex]}(휴일) ${
+        this.#holidayWorkers[this.#holidayIndex]
+      }`
+    );
+  }
+
+  addWeekendWorker(today, dayIndex) {
     this.#schedule.addSchedule(
       `${this.#month}월 ${today}일 ${DAY[dayIndex]}(휴일) ${
         this.#holidayWorkers[this.#holidayIndex]
