@@ -20,6 +20,13 @@ class Validator {
     }
   }
 
+  validateNameUnique(workers) {
+    const uniqueWokers = new Set(workers);
+    if (uniqueWokers.size !== workers.length) {
+      throw new Error(ERROR_MESSAGE.invalid_name_unique);
+    }
+  }
+
   validateWorkerName(name) {
     if (!(name.length <= 5)) {
       throw new Error(ERROR_MESSAGE.invalid_name_length);
