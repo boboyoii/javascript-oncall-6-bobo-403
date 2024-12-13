@@ -19,6 +19,12 @@ class Validator {
       throw new Error(ERROR_MESSAGE.invalid_worker_number);
     }
   }
+
+  validateWorkerName(name) {
+    if (!(name.length <= 5)) {
+      throw new Error(ERROR_MESSAGE.invalid_name_length);
+    }
+  }
 }
 
 export default Validator;
