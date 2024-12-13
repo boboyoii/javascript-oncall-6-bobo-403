@@ -71,6 +71,10 @@ class ScheduleManager {
     return this.#schedule;
   }
 
+  isduplicationWork(worker) {
+    return this.#schedule.isOverlapBeforeWorker(worker);
+  }
+
   isWeekend(dayIndex) {
     if (!(dayIndex >= 0 && dayIndex <= 4)) return true;
     return false;
