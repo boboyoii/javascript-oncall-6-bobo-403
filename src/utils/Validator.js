@@ -23,6 +23,13 @@ const Validator = {
     if (workers.some((worker) => worker.length > 5 || worker.length === 0))
       throw new Error(ERROR_MESSAGE.INVALID_NAME_LENGTH);
   },
+  isSameWorkers(holidayWorkers, weekdayWorkers) {
+    if (
+      holidayWorkers.length !== weekdayWorkers.length ||
+      holidayWorkers.some((worker) => !weekdayWorkers.includes(worker))
+    )
+      throw new Error(ERROR_MESSAGE.NOT_SAME_WORKERS);
+  },
 };
 
 export default Validator;

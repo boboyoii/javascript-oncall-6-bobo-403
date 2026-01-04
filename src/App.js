@@ -9,7 +9,9 @@ class App {
   async run() {
     const [month, day] = await retry(() => InputView.inputMonthAndDay());
     const weekdayWorkers = await retry(() => InputView.inputWeekdayOrder());
-    const holidayWorkers = await retry(() => InputView.inputHolidayOrder());
+    const holidayWorkers = await retry(() =>
+      InputView.inputHolidayOrder(weekdayWorkers)
+    );
 
     this.scheduleController = new ScheduleController(
       month,

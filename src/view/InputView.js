@@ -21,14 +21,17 @@ const InputView = {
     Validator.isValidCount(workers);
     Validator.isUniqueWorkers(workers);
     Validator.isValidNameLength(workers);
+
     return workers;
   },
 
-  async inputHolidayOrder() {
+  async inputHolidayOrder(weekdayWorkers) {
     const order = await Console.readLineAsync(
       PROGRESS_MESSAGE.INPUT_HOLIDAY_ORDER
     );
     const workers = order.split(',');
+    Validator.isSameWorkers(workers, weekdayWorkers);
+
     return workers;
   },
 };
