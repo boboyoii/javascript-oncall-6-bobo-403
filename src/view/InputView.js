@@ -9,6 +9,7 @@ const InputView = {
     );
     const [month, day] = input.split(',');
     Validator.isValidMonth(month);
+    Validator.isValidDay(day);
     return [month, day];
   },
 };
