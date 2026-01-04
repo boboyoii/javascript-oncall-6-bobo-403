@@ -2,11 +2,18 @@ import { DAY } from '../constants/schedule.js';
 
 class Schedule {
   #month;
-  #dayIndex;
+  #table;
+  #before;
 
-  constructor(month, day) {
+  constructor(month) {
     this.#month = month;
-    this.#dayIndex = DAY.indexOf(day);
+    this.#before = null;
+    this.#table = [];
+  }
+
+  addTable(date, day, name) {
+    this.#table.push(`${this.#month}월 ${date}일 ${day} ${name}`);
+    this.#before = name;
   }
 }
 
