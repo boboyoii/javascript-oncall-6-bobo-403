@@ -24,13 +24,13 @@ class ScheduleController {
       const before = this.schedule.getBefore();
 
       if (day === '토' || day === '일')
-        this.addHolidaySchedule(before, date, day);
+        this.addHolidaySchedule(before, date, day, false);
       else {
         if (
           Object.keys(MONTHLY_HOlIDAY).includes(month) &&
           MONTHLY_HOlIDAY[month].includes(date)
         )
-          this.addHolidaySchedule(before, date, day);
+          this.addHolidaySchedule(before, date, day, true);
         else this.addWeekdaySchedule(before, date, day);
       }
 
@@ -43,7 +43,9 @@ class ScheduleController {
     this.schedule.addTable(date, day, next);
   }
 
-  addHolidaySchedule(before, date, day) {
+  addHolidaySchedule(before, date, day, isWeekday) {
+    if (isWeekday) day = `${day} (휴일)`;
+
     const next = this.holidayWorkers.pickNext(before);
     this.schedule.addTable(date, day, next);
   }
