@@ -20,7 +20,7 @@ const Validator = {
       throw new Error(ERROR_MESSAGE.DUPLICATION_NAME);
   },
   isValidNameLength(workers) {
-    if (workers.some((worker) => worker.length > 5))
+    if (workers.some((worker) => worker.length > 5 || worker.length === 0))
       throw new Error(ERROR_MESSAGE.INVALID_NAME_LENGTH);
   },
 };
