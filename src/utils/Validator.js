@@ -19,6 +19,10 @@ const Validator = {
     if (workers.length !== uniqueWorkers.size)
       throw new Error(ERROR_MESSAGE.DUPLICATION_NAME);
   },
+  isValidNameLength(workers) {
+    if (workers.some((worker) => worker.length < 5))
+      throw new Error(ERROR_MESSAGE.INVALID_NAME_LENGTH);
+  },
 };
 
 export default Validator;

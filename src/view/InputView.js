@@ -20,6 +20,7 @@ const InputView = {
     const workers = order.split(',');
     Validator.isValidCount(workers);
     Validator.isUniqueWorkers(workers);
+    Validator.isValidNameLength(workers);
     return workers;
   },
 

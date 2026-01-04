@@ -7,6 +7,7 @@ export const PROGRESS_MESSAGE = Object.freeze({
 export const ERROR_MESSAGE = Object.freeze({
   INVALID_MONTH: '[ERROR] 월은 1~12 숫자로 입력해주세요.',
   INVALID_DAY: '[ERROR] 요일은 월-일 로 입력해주세요.',
-  INVALID_COUNT: '[ERROR] 근무자는 5명 이상 35명 이하 입력가능 합니다.',
+  INVALID_COUNT: '[ERROR] 근무자는 5명 이상 35명 이하 입력가능합니다.',
   DUPLICATION_NAME: '[ERROR] 중복된 닉네임이 존재합니다.',
+  INVALID_NAME_LENGTH: '[ERROR] 닉네임은 최대 5자까지 가능합니다.',
 });
