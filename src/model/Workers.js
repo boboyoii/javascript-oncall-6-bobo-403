@@ -9,13 +9,13 @@ class Workers {
     this.#skip = 0;
   }
 
-  getNext(before) {
+  pickNext(before) {
     let next = this.#names[this.#pos];
     if (before === next) {
+      next = this.#names[(this.#pos + this.#skip + 1) % this.#names.length];
       this.#skip += 1;
-      return this.#names[(this.#pos + 1) % this.#names.length];
     }
-    this.#pos = (this.#pos + this.#skip) % this.#names.length;
+    this.#pos = (this.#pos + this.#skip + 1) % this.#names.length;
     this.#skip = 0;
     return next;
   }
