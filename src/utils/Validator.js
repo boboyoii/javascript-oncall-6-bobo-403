@@ -14,6 +14,11 @@ const Validator = {
     if (workers.length < 5 || workers.length > 35)
       throw new Error(ERROR_MESSAGE.INVALID_COUNT);
   },
+  isUniqueWorkers(workers) {
+    const uniqueWorkers = new Set(workers);
+    if (workers.length !== uniqueWorkers.size)
+      throw new Error(ERROR_MESSAGE.DUPLICATION_NAME);
+  },
 };
 
 export default Validator;

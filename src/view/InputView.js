@@ -19,6 +19,7 @@ const InputView = {
     );
     const workers = order.split(',');
     Validator.isValidCount(workers);
+    Validator.isUniqueWorkers(workers);
     return workers;
   },
 
@@ -27,7 +28,6 @@ const InputView = {
       PROGRESS_MESSAGE.INPUT_HOLIDAY_ORDER
     );
     const workers = order.split(',');
-    Validator.isValidCount(workers);
     return workers;
   },
 };
