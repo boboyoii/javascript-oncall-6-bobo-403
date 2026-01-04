@@ -20,6 +20,14 @@ const InputView = {
     const workers = order.split(',');
     return workers;
   },
+
+  async inputHolidayOrder() {
+    const order = await Console.readLineAsync(
+      PROGRESS_MESSAGE.INPUT_HOLIDAY_ORDER
+    );
+    const workers = order.split(',');
+    return workers;
+  },
 };
 
 export default InputView;
