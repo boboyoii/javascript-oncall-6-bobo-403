@@ -19,6 +19,10 @@ class Schedule {
     return this.#before;
   }
 
+  getTable() {
+    return this.#table;
+  }
+
   addTable(date, day, name) {
     this.#table.push(`${this.#month}월 ${date}일 ${day} ${name}`);
     this.#before = name;

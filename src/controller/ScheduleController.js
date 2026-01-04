@@ -36,6 +36,8 @@ class ScheduleController {
 
       this.dayIndex = (this.dayIndex + 1) % DAY.length;
     }
+
+    return this.schedule.getTable();
   }
 
   addWeekdaySchedule(before, date, day) {

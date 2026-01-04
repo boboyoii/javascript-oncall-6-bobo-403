@@ -1,5 +1,6 @@
 import ScheduleController from './controller/ScheduleController.js';
 import InputView from './view/InputView.js';
+import OutputView from './view/OuputView.js';
 
 class App {
   scheduleController;
@@ -15,6 +16,9 @@ class App {
       weekdayWorkers,
       holidayWorkers
     );
+    const schedule = this.scheduleController.makeSchedule();
+
+    OutputView.printSchedule(schedule);
   }
 }
 
