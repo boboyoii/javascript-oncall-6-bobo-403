@@ -12,9 +12,14 @@ class ScheduleController {
     this.holidayWorkers = new Workers(holidayWorkers);
   }
 
+  addWeekdaySchedule(before, date, day) {
+    const next = this.weekdayWorkers.getNext(before);
+    this.schedule.addTable(date, day, next);
+  }
+
   addHolidaySchedule(before, date, day) {
     const next = this.holidayWorkers.getNext(before);
-    this.schedule.addTable(date, `${day} 휴일`, next);
+    this.schedule.addTable(date, day, next);
   }
 }
 
