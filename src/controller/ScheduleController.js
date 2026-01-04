@@ -1,4 +1,4 @@
-import { DAY, MONTHLY_DATE } from '../constants/schedule.js';
+import { DAY, MONTHLY_DATE, MONTHLY_HOlIDAY } from '../constants/schedule.js';
 import Schedule from '../model/Schedule.js';
 import Workers from '../model/Workers.js';
 
@@ -23,7 +23,16 @@ class ScheduleController {
       const day = DAY[this.dayIndex];
       const before = this.schedule.getBefore();
 
-      if (day === '토' || day === '일') this.addHolidaySchedule(date, day);
+      if (day === '토' || day === '일')
+        this.addHolidaySchedule(before, date, day);
+      else {
+        if (
+          Object.keys(MONTHLY_HOlIDAY).includes(month) &&
+          MONTHLY_HOlIDAY[month].includes(date)
+        )
+          this.addHolidaySchedule(before, date, day);
+        else this.addWeekdaySchedule(before, date, day);
+      }
 
       this.dayIndex = (this.dayIndex + 1) % DAY.length;
     }

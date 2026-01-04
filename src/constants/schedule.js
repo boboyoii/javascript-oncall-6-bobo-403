@@ -14,3 +14,13 @@ export const MONTHLY_DATE = {
   11: 30,
   12: 31,
 };
+
+export const MONTHLY_HOlIDAY = {
+  1: [1],
+  3: [1],
+  5: [5],
+  6: [6],
+  8: [15],
+  10: [3, 9],
+  12: [25],
+};
