@@ -12,6 +12,14 @@ const InputView = {
     Validator.isValidDay(day);
     return [month, day];
   },
+
+  async inputWeekdayOrder() {
+    const order = await Console.readLineAsync(
+      PROGRESS_MESSAGE.INPUT_WEEKDAY_ORDER
+    );
+    const workers = order.split(',');
+    return workers;
+  },
 };
 
 export default InputView;
