@@ -10,6 +10,10 @@ const Validator = {
   isValidDay(day) {
     if (!DAY.includes(day)) throw new Error(ERROR_MESSAGE.INVALID_DAY);
   },
+  isValidCount(workers) {
+    if (workers.length < 5 || workers.length > 35)
+      throw new Error(ERROR_MESSAGE.INVALID_COUNT);
+  },
 };
 
 export default Validator;

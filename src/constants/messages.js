@@ -7,4 +7,5 @@ export const PROGRESS_MESSAGE = Object.freeze({
 export const ERROR_MESSAGE = Object.freeze({
   INVALID_MONTH: '[ERROR] 월은 1~12 숫자로 입력해주세요.',
   INVALID_DAY: '[ERROR] 요일은 월-일 로 입력해주세요.',
+  INVALID_COUNT: '[ERROR] 근무자는 5명 이상 35명 이하 입력가능 합니다.',
 });

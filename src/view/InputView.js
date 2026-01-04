@@ -18,6 +18,7 @@ const InputView = {
       PROGRESS_MESSAGE.INPUT_WEEKDAY_ORDER
     );
     const workers = order.split(',');
+    Validator.isValidCount(workers);
     return workers;
   },
 
@@ -26,6 +27,7 @@ const InputView = {
       PROGRESS_MESSAGE.INPUT_HOLIDAY_ORDER
     );
     const workers = order.split(',');
+    Validator.isValidCount(workers);
     return workers;
   },
 };
